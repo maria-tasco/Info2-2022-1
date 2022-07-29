@@ -8,12 +8,8 @@ int main()
     unsigned int nC=0;
     unsigned int *ptr_nC=&nC;
 
-    char **categorias=new char*[nC];
-    for(unsigned int i=0; i<nC; i++){
-        categorias[i]=new char[20];
-    }
-//    char **categorias=nullptr;
-//    categorias=reservar_memoria(ptr_nC);
+    char **categorias=nullptr;
+    categorias=reservar_memoria_Dinamica_incial(ptr_nC);
 
     while (op!=3) {
         op=menu();

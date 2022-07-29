@@ -2,8 +2,7 @@
 #include "categorias.h"
 using namespace std;
 void mostrar_matriz(char **matriz, int nC){
-    cout<<"mostrando matriz"<<endl;
-    cout<<"numero categorias: "<<nC<<endl;
+    cout<<"====LISTA CATEGORIAS===="<<endl;
     for (int i=0; i<nC; ++i) {
         cout<< matriz[i] << endl;
     }
@@ -23,7 +22,7 @@ char** registrar_categoria(char **categorias, unsigned *nC){
 /*! Función realiza el registro de infinitas categorias ingresadas
  *  por un usuario.
  *  se coloca *nC ya que esta pasando por referencia con un puntero*/
-
+    char *categoria = nullptr;
     /*Se crea el arreglo aux y se copia los valores de categorias*/
     char **cat_aux=new char*[*nC];
     for(unsigned int i=0; i<*nC; i++){
@@ -32,9 +31,7 @@ char** registrar_categoria(char **categorias, unsigned *nC){
     /*Se liberal el espacio de memoria de categoria para crear uno
      * nuevo con un espacio más grande*/
     delete [] categorias;
-    /*Se aumenta el espacio de memoria puede ser a n, pero se hace
-     *de a 1 para que solo cada vez que usuario vaya a registrar se
-     *cree un espacio más para esa categoria*/
+    /*Se aumenta el tamaño de reserva para la memoria*/
     *nC+=1;
     cout<<"numero categorias: "<<*nC<<endl;
     /*Se crea en nuevo espacio de memoria con su nuevo tamaño*/
@@ -47,14 +44,16 @@ char** registrar_categoria(char **categorias, unsigned *nC){
     /*Se crea en nuevo espacio para la categoria*/
     categorias[*nC-1]= new char[20];
 
-    cout<<"Ingrese la categoria que quiere registrar"<<endl;
+    cout<<"Ingrese la categoria que quiere REGISTRAR: "<<endl;
+    /*Antes de registrar debo asegurar que no este repetida*/
     cin>>categorias[*nC-1];
+
     return categorias;
     delete [] categorias;
 }
 
 
-char** reservar_memoria(unsigned int *nC)
+char** reservar_memoria_Dinamica_incial(unsigned int *nC)
 {
     //creando una matriz auxiliar para asignar espacio de memoria
     char **mat_aux=new char*[*nC];
@@ -64,3 +63,4 @@ char** reservar_memoria(unsigned int *nC)
     return mat_aux;
     delete [] mat_aux;
 }
+
