@@ -2,6 +2,6 @@
 #define CATEGORIAS_H
 void mostrar_matriz(char **matriz, int nC);
 unsigned short menu();
-void registrar_categoria(char **categorias, unsigned *nC);
-
+char **registrar_categoria(char **categorias, unsigned *nC);
+char **reservar_memoria(unsigned int *nC);
 #endif // CATEGORIAS_H
