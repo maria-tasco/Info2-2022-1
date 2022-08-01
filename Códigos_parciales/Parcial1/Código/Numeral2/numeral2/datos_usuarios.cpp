@@ -12,10 +12,10 @@ unsigned short int menu(){
     return op;
 }
 
-datos_usuarios ** registrar_usuarios(datos_usuarios **usuarios, unsigned int *ptr_nU)
+datos_usuarios * registrar_usuarios(datos_usuarios *usuarios, unsigned int *ptr_nU)
 {
     /*Se crea el arreglo aux y se copia los datos del usuario*/
-    struct datos_usuarios **us_aux= new datos_usuarios*[*ptr_nU];
+    struct datos_usuarios *us_aux= new datos_usuarios[*ptr_nU];
     for(unsigned int i=0; i<*ptr_nU; i++){
         us_aux[i]=usuarios[i];
     }
@@ -26,40 +26,40 @@ datos_usuarios ** registrar_usuarios(datos_usuarios **usuarios, unsigned int *pt
     *ptr_nU+=1;
     cout<<"Numero de usuarios: "<<*ptr_nU<<endl;
     /*Se crea en nuevo espacio de memoria con su nuevo tamaño*/
-    usuarios= new datos_usuarios*[*ptr_nU];
+    usuarios= new datos_usuarios[*ptr_nU];
     /*Se copia lo que tenía antes y estaba guardado en auxiliar*/
     for(unsigned int i=0; i<*ptr_nU; i++){
         usuarios[i]=us_aux[i];
     }
     delete [] us_aux;
     /*Se crea en nuevo espacio para la categoria*/
-    usuarios[*(ptr_nU)-1]=new datos_usuarios[5];
+    //usuarios[*(ptr_nU)-1]=*new datos_usuarios[*ptr_nU];
 
-    cout<<"Ingrese el usuario que quiere REGISTRAR: "<<endl;
-    cout<<"Ingrese nombre: "<<endl;
-    cin.getline(usuarios[0]->nombre_apellidos,20);
-    cout<<"Ingrese documento de identidad: "<<endl;
-    cin>>usuarios[1]->d_i;
-    cout<<"Ingrese numero celular: "<<endl;
-    cin>>usuarios[2]->num_cel;
-    cout<<"Ingrese la fecha de nacimiento d/m/a: "<<endl;
-    cin.getline(usuarios[3]->fecha_nacimiento,11);
-    cout<<"Ingrese la vocacion, a lo que se dedica: "<<endl;
-    cin.getline(usuarios[4]->vocacion,20);
+    for(unsigned int i=0;i<*ptr_nU;i++){
+        cout<<"Ingrese nombres y apellidos: "<<endl;
+        cin.getline(usuarios[i].nombre_apellidos,20, '\n' );
+        cout<<"Ingrese documento de identidad: "<<endl;
+        cin>>usuarios[i].d_i;
+        cout<<"Ingrese numero celular: "<<endl;
+        cin>>usuarios[i].num_cel;
+        cout<<"Ingrese la edad: "<<endl;
+        cin>>usuarios[i].edad;
+        cout<<"Ingrese la vocacion, a lo que se dedica: "<<endl;
+        cin.getline(usuarios[i].vocacion,20,'\n');
+    }
 
     return usuarios;
-
     delete [] usuarios;
 }
 
-void mostrar_usuarios(datos_usuarios **usuarios, unsigned int *nU)
+void mostrar_usuarios(datos_usuarios *usuarios, unsigned int *ptr_nU)
 {
-    for(unsigned int i=0;i<*nU;i--){
-        cout<<usuarios[*nU]->nombre_apellidos;
-        cout<<usuarios[*nU]->d_i;
-        cout<<usuarios[*nU]->num_cel;
-        cout<<usuarios[*nU]->fecha_nacimiento;
-        cout<<usuarios[*nU]->vocacion;
+    for(unsigned int i=0;i<*ptr_nU;i++){
+        cout<<usuarios[i].nombre_apellidos<<endl;
+        cout<<usuarios[i].d_i<<endl;
+        cout<<usuarios[i].num_cel<<endl;
+        cout<<usuarios[i].edad<<endl;
+        cout<<usuarios[i].vocacion<<endl;
 
     }
 }

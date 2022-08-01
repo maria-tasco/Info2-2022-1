@@ -8,11 +8,11 @@ struct datos_usuarios
     char nombre_apellidos[20]; //dinamico
     unsigned long long int d_i;
     unsigned long long int num_cel;
-    char fecha_nacimiento[20];
+    unsigned short int edad;
     char vocacion[20]; //dinamico
 };
 
 unsigned short menu();
-datos_usuarios **registrar_usuarios(datos_usuarios **usuarios, unsigned int *ptr_nU);
-void mostrar_usuarios(datos_usuarios **usuarios, unsigned int *nU);
+datos_usuarios *registrar_usuarios(datos_usuarios *usuarios, unsigned int *ptr_nU);
+void mostrar_usuarios(datos_usuarios *usuarios, unsigned int *ptr_nU);
 #endif // DATOS_USUARIOS_H
