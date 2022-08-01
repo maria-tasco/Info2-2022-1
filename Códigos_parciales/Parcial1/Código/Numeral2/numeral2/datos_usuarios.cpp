@@ -32,8 +32,6 @@ datos_usuarios * registrar_usuarios(datos_usuarios *usuarios, unsigned int *ptr_
         usuarios[i]=us_aux[i];
     }
     delete [] us_aux;
-    /*Se crea en nuevo espacio para la categoria*/
-    //usuarios[*(ptr_nU)-1]=*new datos_usuarios[*ptr_nU];
 
     for(unsigned int i=0;i<*ptr_nU;i++){
         cout<<"Ingrese nombres y apellidos: "<<endl;
