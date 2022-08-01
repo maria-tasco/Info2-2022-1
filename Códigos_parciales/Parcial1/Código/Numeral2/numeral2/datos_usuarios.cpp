@@ -52,8 +52,14 @@ datos_usuarios ** registrar_usuarios(datos_usuarios **usuarios, unsigned int *pt
     delete [] usuarios;
 }
 
-void mostrar_usuarios(datos_usuarios **usuarios)
+void mostrar_usuarios(datos_usuarios **usuarios, unsigned int *nU)
 {
-    cout<<"\tLista de usuarios: ";
-    cout<<"Nombres y apellidos: "<<usuarios[0]->nombre_apellidos;
+    for(unsigned int i=0;i<*nU;i--){
+        cout<<usuarios[*nU]->nombre_apellidos;
+        cout<<usuarios[*nU]->d_i;
+        cout<<usuarios[*nU]->num_cel;
+        cout<<usuarios[*nU]->fecha_nacimiento;
+        cout<<usuarios[*nU]->vocacion;
+
+    }
 }
