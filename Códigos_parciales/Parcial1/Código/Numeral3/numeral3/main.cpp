@@ -7,7 +7,7 @@ int main()
 {
     unsigned short int op=0;
     char *fecha_hora_actual=nullptr;
-    unsigned int nT=0;
+    unsigned int nT=1;
     unsigned int *ptr_nT=&nT;
 
     datos_transaccion *transacciones=new datos_transaccion[nT];
@@ -16,7 +16,7 @@ int main()
         op=menu();
         switch (op) {
             case 1: {
-                registrar_transacciones(fecha_hora_actual,transacciones,ptr_nT);
+                transacciones=registrar_transacciones(fecha_hora_actual,transacciones,ptr_nT);
                 break;
             }
             case 2: {

@@ -22,7 +22,7 @@ char** registrar_categoria(char **categorias, unsigned *nC){
 /*! Función realiza el registro de infinitas categorias ingresadas
  *  por un usuario.
  *  se coloca *nC ya que esta pasando por referencia con un puntero*/
-    char *categoria = nullptr;
+    char categoria[20];
     /*Se crea el arreglo aux y se copia los valores de categorias*/
     char **cat_aux=new char*[*nC];
     for(unsigned int i=0; i<*nC; i++){
@@ -46,7 +46,21 @@ char** registrar_categoria(char **categorias, unsigned *nC){
 
     cout<<"Ingrese la categoria que quiere REGISTRAR: "<<endl;
     /*Antes de registrar debo asegurar que no este repetida*/
+    //cin>>categoria;
     cin>>categorias[*nC-1];
+//    unsigned short int cont=0;
+//    for(unsigned int i=0; i<*nC; i++){
+//        cout<<categorias[i];
+//        if(categorias[i]==categoria){
+//            cout<<"La categoria ya existe, intente con otra"<<endl;
+//            cont++;
+//            break;
+//        }
+//    }
+//    if(cont==0){
+//        cout<<"Registrando categoria..."<<endl;
+//        categorias[*nC-1]=categoria;
+//    }
 
     return categorias;
     delete [] categorias;

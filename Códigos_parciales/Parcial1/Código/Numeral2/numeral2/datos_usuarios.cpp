@@ -33,18 +33,16 @@ datos_usuarios * registrar_usuarios(datos_usuarios *usuarios, unsigned int *ptr_
     }
     delete [] us_aux;
 
-    for(unsigned int i=0;i<*ptr_nU;i++){
         cout<<"Ingrese nombres y apellidos: "<<endl;
-        cin.getline(usuarios[i].nombre_apellidos,20, '\n' );
+        cin.getline(usuarios[*ptr_nU-1].nombre_apellidos,20, '\n' );
         cout<<"Ingrese documento de identidad: "<<endl;
-        cin>>usuarios[i].d_i;
+        cin>>usuarios[*ptr_nU-1].d_i;
         cout<<"Ingrese numero celular: "<<endl;
-        cin>>usuarios[i].num_cel;
+        cin>>usuarios[*ptr_nU-1].num_cel;
         cout<<"Ingrese la edad: "<<endl;
-        cin>>usuarios[i].edad;
+        cin>>usuarios[*ptr_nU-1].edad;
         cout<<"Ingrese la vocacion, a lo que se dedica: "<<endl;
-        cin.getline(usuarios[i].vocacion,20,'\n');
-    }
+        cin.getline(usuarios[*ptr_nU-1].vocacion,20,'\n');
 
     return usuarios;
     delete [] usuarios;

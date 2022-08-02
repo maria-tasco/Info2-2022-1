@@ -21,8 +21,8 @@ datos_transaccion * registrar_transacciones(char *fecha_hora_actual, datos_trans
 
     char fecha_hora_actual_aux[25];
     /*Se crea el arreglo aux y se copia los datos de las transacciones*/
-    datos_transaccion *trans_aux=new datos_transaccion[*ptr_nT];
-    for(unsigned int i=0; i<*ptr_nT; i++){
+    struct datos_transaccion *trans_aux=new datos_transaccion[*ptr_nT];
+    for(unsigned int i=0; i<=(*ptr_nT)-1; i++){
         trans_aux[i]=transacciones[i];
     }
     /*Se liberal el espacio de memoria de transacciones para crear uno
@@ -34,35 +34,23 @@ datos_transaccion * registrar_transacciones(char *fecha_hora_actual, datos_trans
     /*Se crea en nuevo espacio de memoria con su nuevo tamaño*/
     transacciones=new datos_transaccion[*ptr_nT];
     /*Se copia lo que tenía antes y estaba guardado en auxiliar*/
-    for(unsigned int i=0; i<*ptr_nT; i++){
+    for(unsigned int i=0; i<(*ptr_nT)-1; i++){
         transacciones[i]=trans_aux[i];
     }
     delete [] trans_aux;
+
     /*Se solicita al usuario el valor de la transaccion*/
-    for(unsigned int i=0;i<*ptr_nT;i++){
-        cout<<"Ingrese el valor de la transaccion: "<<endl;
-        cin>>transacciones[i].valor;
-        cout<<"registrando la hora..."<<endl;
-        fecha_hora_actual=obtener_fecha_hora();
-        for(int j=0; j<25; j++){
-            fecha_hora_actual_aux[j]=fecha_hora_actual[j];
-        }
-        for(unsigned short int j=0; j<25; j++){
-            cout<<fecha_hora_actual_aux[j];
-            transacciones[i].fecha_hora_actual[j]=fecha_hora_actual_aux[j];
-        }
+    cout<<"Ingrese el valor de la transaccion: "<<endl;
+    cin>>transacciones[*ptr_nT-1].valor;
+    cout<<"registrando la hora..."<<endl;
+    fecha_hora_actual=obtener_fecha_hora();
+    for(int j=0; j<25; j++){
+        fecha_hora_actual_aux[j] = fecha_hora_actual[j];
+        cout<<fecha_hora_actual_aux[j];
+        transacciones[*ptr_nT-1].fecha_hora_actual[j]=fecha_hora_actual_aux[j];
     }
-    cout<<endl<<"\tMostrando las transacicones: "<<endl;
-    for(unsigned int i=0;i<*ptr_nT;i++){
-        cout<<"fecha de la transaccion: ";
-        for(unsigned short int j=0; j<25; j++){
-            cout<<transacciones[i].fecha_hora_actual[j];
-        }
-        cout<<endl<<"valor de la transaccion: "<<transacciones[i].valor<<endl;
-        cout<<"========================="<<endl;
-    }
+    mostrar_transacciones(transacciones,ptr_nT);
     return transacciones;
-    fecha_hora_actual=nullptr;
     delete [] transacciones;
 }
 
@@ -84,15 +72,12 @@ extern char* obtener_fecha_hora()
     ti=localtime(ptr_tt);
 
     return asctime(ti);
-
-    ti=nullptr;
-    ptr_tt=nullptr;
 }
 
 void mostrar_transacciones(datos_transaccion *transacciones, unsigned int *ptr_nT)
 {
     cout<<endl<<"\tMostrando las transacicones: "<<endl;
-    for(unsigned int i=0;i<*ptr_nT;i++){
+    for(unsigned int i=1;i<*ptr_nT;i++){
         cout<<"fecha de la transaccion: ";
         for(unsigned short int j=0; j<25; j++){
             cout<<transacciones[i].fecha_hora_actual[j];
