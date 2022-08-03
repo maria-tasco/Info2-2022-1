@@ -1,21 +1,12 @@
+#include "categorias_gastos.h"
 #include <iostream>
-#include "categorias.h"
 using namespace std;
+
 void mostrar_matriz(char **matriz, int nC){
     cout<<"====LISTA CATEGORIAS===="<<endl;
     for (int i=0; i<nC; ++i) {
         cout<< matriz[i] << endl;
     }
-}
-
-unsigned short int menu(){
-    unsigned short int op=0;
-    cout<<"Bienvenido al sistema de registro de categorias"
-        <<endl<<"Menu: "<<endl<<"1. Registrar una categoria"
-        <<endl<<"2. Visualizar las categorias"
-        <<endl<<"3. Salir"<<endl;
-    cin>>op;
-    return op;
 }
 
 char** registrar_categoria(char **categorias, unsigned *nC){
