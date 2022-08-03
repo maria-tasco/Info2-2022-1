@@ -33,16 +33,23 @@ datos_usuarios * registrar_usuarios(datos_usuarios *usuarios, unsigned int *ptr_
     }
     delete [] us_aux;
 
+    //============================================================
+    fflush(stdin);
+    cout<<"\tIngrese datos del usuario"<<endl;
+    cin.getline(usuarios[*ptr_nU-1].nombre_apellidos,20, '\n' );
+    fflush(stdin);
+    cout<<"Ingrese la vocacion, a lo que se dedica: "<<endl;
+    cin.getline(usuarios[*ptr_nU-1].vocacion,20,'\n');
+    fflush(stdin);
     cout<<"Ingrese nombres y apellidos: "<<endl;
     cin.getline(usuarios[*ptr_nU-1].nombre_apellidos,20, '\n' );
+    fflush(stdin);
     cout<<"Ingrese documento de identidad: "<<endl;
     cin>>usuarios[*ptr_nU-1].d_i;
     cout<<"Ingrese numero celular: "<<endl;
     cin>>usuarios[*ptr_nU-1].num_cel;
     cout<<"Ingrese la edad: "<<endl;
     cin>>usuarios[*ptr_nU-1].edad;
-    cout<<"Ingrese la vocacion, a lo que se dedica: "<<endl;
-    cin.getline(usuarios[*ptr_nU-1].vocacion,20,'\n');
 
     return usuarios;
     delete [] usuarios;
@@ -50,12 +57,14 @@ datos_usuarios * registrar_usuarios(datos_usuarios *usuarios, unsigned int *ptr_
 
 void mostrar_usuarios(datos_usuarios *usuarios, unsigned int *ptr_nU)
 {
-    for(unsigned int i=0;i<*ptr_nU;i++){
-        cout<<usuarios[i].nombre_apellidos<<endl;
-        cout<<usuarios[i].d_i<<endl;
-        cout<<usuarios[i].num_cel<<endl;
-        cout<<usuarios[i].edad<<endl;
-        cout<<usuarios[i].vocacion<<endl;
-
-    }
+    cout<<"\tLista de usuarios"<<endl;
+    for(unsigned int i=1;i<*ptr_nU;i++){
+        cout<<"Usuario "<<i<<endl;
+        cout<<"Nombres y apellidos: "<<usuarios[i].nombre_apellidos<<endl;
+        cout<<"Numero documento: "<<usuarios[i].d_i<<endl;
+        cout<<"Numero celular: "<<usuarios[i].num_cel<<endl;
+        cout<<"Edad: "<<usuarios[i].edad<<endl;
+        cout<<"Vocacion: "<<usuarios[i].vocacion<<endl;
+        cout<<"==================================================="<<endl;
+     }
 }
