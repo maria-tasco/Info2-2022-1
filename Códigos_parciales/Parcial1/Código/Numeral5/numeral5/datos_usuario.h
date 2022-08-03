@@ -3,9 +3,6 @@
 #include "categorias_gastos.h"
 #include "datos_transaccion.h"
 
-
-
-
 struct datos_funciones_usuario{
     //datos_usuarios() {}
     char nombre_apellidos[20]; //dinamico
@@ -20,4 +17,8 @@ struct datos_funciones_usuario{
 
 datos_funciones_usuario *registrar_usuarios(datos_funciones_usuario *usuarios, unsigned int *ptr_nU);
 void mostrar_usuarios(datos_funciones_usuario *usuarios, unsigned int *ptr_nU);
+//==========================================================================
+void mostrar_matriz(char **matriz, int nC, datos_funciones_usuario *usuarios, unsigned int num_usuarios);
+char **registrar_categoria(char **categorias, unsigned *nC);
+char **reservar_memoria_Dinamica_incial(unsigned int *nC);
 #endif // DATOS_USUARIO_H

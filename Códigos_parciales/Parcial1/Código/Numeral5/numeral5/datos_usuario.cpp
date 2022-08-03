@@ -50,7 +50,7 @@ void mostrar_usuarios(datos_funciones_usuario *usuarios, unsigned int *ptr_nU)
 {
     cout<<"\tLista de usuarios"<<endl;
     for(unsigned int i=1;i<*ptr_nU;i++){
-        cout<<"Usuario "<<i<<endl;
+        cout<<"Usuario numero: "<<i-1<<endl;
         cout<<"Nombres y apellidos: "<<usuarios[i].nombre_apellidos<<endl;
         cout<<"Numero documento: "<<usuarios[i].d_i<<endl;
         cout<<"Numero celular: "<<usuarios[i].num_cel<<endl;
@@ -59,4 +59,71 @@ void mostrar_usuarios(datos_funciones_usuario *usuarios, unsigned int *ptr_nU)
         cout<<"==================================================="<<endl;
      }
 }
+//===============================================================
+void mostrar_matriz(char **matriz, int nC, datos_funciones_usuario *usuarios, unsigned int num_usuarios){
+    cout<<"==== LISTA CATEGORIAS DEL USUARIO "<<usuarios[num_usuarios+1].nombre_apellidos<<" ===="<<endl;
+    for (int i=0; i<nC; i++) {
+            cout<<*(usuarios[num_usuarios+1].categorias[i])<< endl;
+    }
+}
 
+char** registrar_categoria(char **categorias, unsigned *nC){
+/*! Función realiza el registro de infinitas categorias ingresadas
+ *  por un usuario.
+ *  se coloca *nC ya que esta pasando por referencia con un puntero*/
+    //char categoria[20];
+    /*Se crea el arreglo aux y se copia los valores de categorias*/
+    char **cat_aux=new char*[*nC];
+    for(unsigned int i=0; i<*nC; i++){
+        cat_aux[i]=categorias[i];
+    }
+    /*Se liberal el espacio de memoria de categoria para crear uno
+     * nuevo con un espacio más grande*/
+    delete [] categorias;
+    /*Se aumenta el tamaño de reserva para la memoria*/
+    *nC+=1;
+    cout<<"numero categorias: "<<*nC<<endl;
+    /*Se crea en nuevo espacio de memoria con su nuevo tamaño*/
+    categorias=new char*[*nC];
+    /*Se copia lo que tenía antes y estaba guardado en auxiliar*/
+    for(unsigned int i=0; i<*nC; i++){
+        categorias[i]=cat_aux[i];
+    }
+    delete [] cat_aux;
+    /*Se crea en nuevo espacio para la categoria*/
+    categorias[*nC-1]= new char[20];
+
+    cout<<"Ingrese la categoria que quiere REGISTRAR: "<<endl;
+    /*Antes de registrar debo asegurar que no este repetida*/
+    //cin>>categoria;
+    cin>>categorias[*nC-1];
+    //cout<<categorias[*nC-1];
+//    unsigned short int cont=0;
+//    for(unsigned int i=0; i<*nC; i++){
+//        cout<<categorias[i];
+//        if(categorias[i]==categoria){
+//            cout<<"La categoria ya existe, intente con otra"<<endl;
+//            cont++;
+//            break;
+//        }
+//    }
+//    if(cont==0){
+//        cout<<"Registrando categoria..."<<endl;
+//        categorias[*nC-1]=categoria;
+//    }
+
+    return categorias;
+    delete [] categorias;
+}
+
+
+char** reservar_memoria_Dinamica_incial(unsigned int *nC)
+{
+    //creando una matriz auxiliar para asignar espacio de memoria
+    char **mat_aux=new char*[*nC];
+    for(unsigned int i=0; i<*nC; i++){
+        mat_aux[i]=new char[20];
+    }
+    return mat_aux;
+    delete [] mat_aux;
+}
