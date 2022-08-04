@@ -61,13 +61,15 @@ void mostrar_usuarios(datos_funciones_usuario *usuarios, unsigned int *ptr_nU)
 }
 //===============================================================
 void mostrar_matriz(char **matriz, int nC, datos_funciones_usuario *usuarios, unsigned int num_usuarios){
+
     cout<<"==== LISTA CATEGORIAS DEL USUARIO "<<usuarios[num_usuarios+1].nombre_apellidos<<" ===="<<endl;
-    for (int i=0; i<nC; i++) {
-            cout<<*(usuarios[num_usuarios+1].categorias[i])<< endl;
+
+    for (unsigned long int i=0; i<3; i++) {
+            cout<<usuarios[num_usuarios+1].categorias<< endl;
     }
 }
 
-char** registrar_categoria(char **categorias, unsigned *nC){
+char** registrar_categoria(char **categorias, unsigned *nC,datos_funciones_usuario *usuarios, unsigned int num_usuarios){
 /*! Función realiza el registro de infinitas categorias ingresadas
  *  por un usuario.
  *  se coloca *nC ya que esta pasando por referencia con un puntero*/
@@ -82,7 +84,6 @@ char** registrar_categoria(char **categorias, unsigned *nC){
     delete [] categorias;
     /*Se aumenta el tamaño de reserva para la memoria*/
     *nC+=1;
-    cout<<"numero categorias: "<<*nC<<endl;
     /*Se crea en nuevo espacio de memoria con su nuevo tamaño*/
     categorias=new char*[*nC];
     /*Se copia lo que tenía antes y estaba guardado en auxiliar*/
@@ -97,6 +98,9 @@ char** registrar_categoria(char **categorias, unsigned *nC){
     /*Antes de registrar debo asegurar que no este repetida*/
     //cin>>categoria;
     cin>>categorias[*nC-1];
+    usuarios[num_usuarios+1].categorias=categorias[*nC-1];
+    usuarios[num_usuarios+1].num_categorias+=1;
+    cout<<"numero categorias: "<<usuarios[num_usuarios].num_categorias<<endl;
     //cout<<categorias[*nC-1];
 //    unsigned short int cont=0;
 //    for(unsigned int i=0; i<*nC; i++){

@@ -27,10 +27,8 @@ int main()
                 mostrar_usuarios(usuarios,ptr_nU);
                 unsigned int num_usuario=0;
                 cout<<"¿A cuál numero de usuario quiere agregar una categoria de gasto?"<<endl;
-                cin>>num_usuario;;
-                categorias=registrar_categoria(categorias, ptr_nC);
-                cout<<*(categorias[nC-1]);
-                usuarios[num_usuario+1].categorias =categorias;
+                cin>>num_usuario;
+                categorias=registrar_categoria(categorias, ptr_nC,usuarios,num_usuario);
                 mostrar_matriz(categorias,nC,usuarios,num_usuario);
 
 
