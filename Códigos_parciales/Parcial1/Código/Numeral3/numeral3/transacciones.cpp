@@ -30,7 +30,7 @@ datos_transaccion * registrar_transacciones(char *fecha_hora_actual, datos_trans
     delete [] transacciones;
     /*Se aumenta el tamaño de reserva para la memoria*/
     *ptr_nT+=1;
-    cout<<"Numero de transacciones: "<<*ptr_nT<<endl;
+    //cout<<"Numero de transacciones: "<<*ptr_nT<<endl;
     /*Se crea en nuevo espacio de memoria con su nuevo tamaño*/
     transacciones=new datos_transaccion[*ptr_nT];
     /*Se copia lo que tenía antes y estaba guardado en auxiliar*/
@@ -49,7 +49,7 @@ datos_transaccion * registrar_transacciones(char *fecha_hora_actual, datos_trans
         cout<<fecha_hora_actual_aux[j];
         transacciones[*ptr_nT-1].fecha_hora_actual[j]=fecha_hora_actual_aux[j];
     }
-    mostrar_transacciones(transacciones,ptr_nT);
+    //mostrar_transacciones(transacciones,ptr_nT);
     return transacciones;
     delete [] transacciones;
 }

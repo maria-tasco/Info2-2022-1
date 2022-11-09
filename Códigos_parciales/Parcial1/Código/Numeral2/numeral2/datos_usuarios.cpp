@@ -24,7 +24,7 @@ datos_usuarios * registrar_usuarios(datos_usuarios *usuarios, unsigned int *ptr_
     delete [] usuarios;
     /*Se aumenta el tamaño de reserva para la memoria*/
     *ptr_nU+=1;
-    cout<<"Numero de usuarios: "<<*ptr_nU<<endl;
+    //cout<<"Numero de usuarios: "<<*ptr_nU<<endl;
     /*Se crea en nuevo espacio de memoria con su nuevo tamaño*/
     usuarios= new datos_usuarios[*ptr_nU];
     /*Se copia lo que tenía antes y estaba guardado en auxiliar*/

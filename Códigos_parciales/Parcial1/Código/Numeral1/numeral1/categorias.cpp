@@ -33,7 +33,7 @@ char** registrar_categoria(char **categorias, unsigned *nC){
     delete [] categorias;
     /*Se aumenta el tamaño de reserva para la memoria*/
     *nC+=1;
-    cout<<"numero categorias: "<<*nC<<endl;
+    //cout<<"numero categorias: "<<*nC<<endl;
     /*Se crea en nuevo espacio de memoria con su nuevo tamaño*/
     categorias=new char*[*nC];
     /*Se copia lo que tenía antes y estaba guardado en auxiliar*/

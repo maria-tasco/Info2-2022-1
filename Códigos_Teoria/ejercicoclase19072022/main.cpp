@@ -90,7 +90,9 @@ void Marcador::setColor(char *newColor){
 
 /*
  * ¿Qué voy a hacer?
- * OBJETO: Marcador. -> Clases
+ *
+ * OBJETO: Marcador. -> Clase
+ *
  * Caracteristicas Estructurales: -> Atributos/miembros de una clase -> Variables
  * +color -> string
  * tipo de tinta -> char *
@@ -105,6 +107,7 @@ void Marcador::setColor(char *newColor){
  * Temperatura -> int, float
  * escala metrica -> bool, objeto
  * =============================
+ *
  * Caracteristicas Funcionales: -> Métodos
  * Liberar tinta.
  * fusionarse con el color de otros marcadores
