@@ -1,0 +1,86 @@
+#include "enemigo.h"
+
+Enemigo::Enemigo()
+    :px(0), py(0),
+     vx(0), vy(0),
+     ax(0), ay(0),
+     dx(80), dy(80)
+{
+
+}
+
+Enemigo::Enemigo(float px, float py)
+    :px(px), py(py)
+{
+
+}
+
+QRectF Enemigo::boundingRect() const
+{
+    return QRectF(0,0,dx,dy);
+}
+
+void Enemigo::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+{
+    QPixmap enemigo_izq(":/Enemigo/ImgProyectoFinal/enemigo.png");
+    painter->drawPixmap(0,0,dx,dy,enemigo_izq);
+}
+
+void Enemigo::advance(int phase)
+{
+    vx = vx + ax*DT;
+    vy = vy + ay*DT;
+
+    px = px + vx*DT +0.5*ax*DT*DT;
+    py = py + vy*DT +0.5*ay*DT*DT;
+
+    setPos(px,py);
+}
+
+Proyectil* Enemigo::disparar()
+{
+    float _vx, _vy;
+
+    if(vx==0 && vy==0){
+        _vx=30;
+        _vy=0;
+    }else if(vy==0){
+        _vx=vx+10;
+    }else if(vx==0){
+        _vy=vy+10;
+    }
+    if(Proyectiles.size()<3){
+        Proyectiles.push_back(new Proyectil(px+20,py+20,_vx,_vy));
+        return Proyectiles.last();
+    }
+
+    return nullptr;
+}
+
+Proyectil* Enemigo::eliminarProyectil()
+{
+    Proyectil *p = Proyectiles.first();
+    Proyectiles.remove(0);
+    return p;
+}
+
+float Enemigo::getVx() const
+{
+    return vx;
+}
+
+void Enemigo::setVx(float newVx)
+{
+    vx = newVx;
+}
+
+float Enemigo::getVy() const
+{
+    return vy;
+}
+
+void Enemigo::setVy(float newVy)
+{
+    vy = newVy;
+}
+

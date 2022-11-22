@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/BN1">
+        <file>ImgProyectoFinal/BloquesMadera.png</file>
+        <file>ImgProyectoFinal/BloqueDestructibleMadera.png</file>
+    </qresource>
+    <qresource prefix="/BN2">
+        <file>ImgProyectoFinal/BloquesPiedra.png</file>
+    </qresource>
+    <qresource prefix="/BN3">
+        <file>ImgProyectoFinal/BloquesHielo.png</file>
+    </qresource>
+</RCC>
