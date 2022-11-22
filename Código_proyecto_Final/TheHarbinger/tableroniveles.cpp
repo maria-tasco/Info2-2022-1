@@ -10,19 +10,21 @@ TableroNiveles::TableroNiveles(QWidget *parent)
     scene->setSceneRect(0,0,630,630);
     ui->graphicsView->setScene(scene);
 
-    m1=nullptr;
+    //m1=nullptr;
 
     connect(ui->pushButtonStart, &QPushButton::clicked,
             this, &TableroNiveles::on_pushButtonStart_clicked);
 }
 void TableroNiveles::on_pushButtonStart_clicked()
 {
-    m1 = new Mesajero;
-    scene->addItem(m1);
-    crearMapa();
 
     E_izq = new Enemigo;
     scene->addItem(E_izq);
+
+    mensajero1 = new Mensajero;
+    scene->addItem(mensajero1);
+
+    crearMapa();
 
     time = new QTimer;
     time->start(100);
@@ -56,37 +58,28 @@ void TableroNiveles::keyPressEvent(QKeyEvent *event)
     if(event->key()==Qt::Key_W)
      {
        if(!EvaluarColisionPared())
-          m1->MoveUp();
+          mensajero1->MoveUp();
        else
-           m1->MoveDown();
+           mensajero1->MoveDown();
      }else if(event->key()==Qt::Key_S)
      {
         if(!EvaluarColisionPared())
-           m1->MoveDown();
+           mensajero1->MoveDown();
         else
-            m1->MoveUp();
+            mensajero1->MoveUp();
      }else if(event->key()==Qt::Key_D)
      {
           if(!EvaluarColisionPared())
-             m1->MoveRigth();
+             mensajero1->MoveRigth();
           else
-            m1->MoveLeft();
+            mensajero1->MoveLeft();
 
      }else if(event->key()==Qt::Key_A)
     {
         if(!EvaluarColisionPared())
-          m1->MoveLeft();
+          mensajero1->MoveLeft();
         else
-          m1->MoveRigth();
-    }else if(event->key()==Qt::Key_E){
-        m1->saltar();
-    }else if(event->key()==Qt::Key_P){
-//                auto p = E_izq->disparar();
-//                if(p!=nullptr){
-//                    scene->addItem(p);
-//                    connect(p,&Proyectil::finProyectil,
-//                            this,&TableroNiveles::eliminarProyectil);
-//                }
+          mensajero1->MoveRigth();
     }
 }
 
@@ -95,7 +88,7 @@ bool TableroNiveles::EvaluarColisionPared()
     QList<pared*>::Iterator it;
     for(it=paredes.begin(); it!=paredes.end();it++)
     {
-       if((*it)->collidesWithItem(m1))
+       if((*it)->collidesWithItem(mensajero1))
            return true;
     }
     return false;

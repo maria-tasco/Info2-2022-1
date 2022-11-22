@@ -6,12 +6,12 @@
 #include <QGraphicsScene>
 #include <QTimer>
 #include <QVector>
-#include "mesajero.h"
 #include "bloque.h"
 #include "pared.h"
 #include <QList>
 #include "enemigo.h"
 #include "proyectil.h"
+#include "mensajero.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class TableroNiveles; }
@@ -40,8 +40,8 @@ private:
     QGraphicsScene *sceneN2;
     QTimer *time;
     QVector<Bloque *> bloques;
-    Mesajero *m1;
     Enemigo *E_izq;
     QList<pared*>paredes;
+    Mensajero *mensajero1;
 };
 #endif // TABLERONIVELES_H

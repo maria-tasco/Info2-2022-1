@@ -28,11 +28,11 @@ void Enemigo::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, Q
 
 void Enemigo::advance(int phase)
 {
-    vx = vx + ax*DT;
-    vy = vy + ay*DT;
+    vx = vx + ax*DTE;
+    vy = vy + ay*DTE;
 
-    px = px + vx*DT +0.5*ax*DT*DT;
-    py = py + vy*DT +0.5*ay*DT*DT;
+    px = px + vx*DTE +0.5*ax*DTE*DTE;
+    py = py + vy*DTE +0.5*ay*DTE*DTE;
 
     setPos(px,py);
 }

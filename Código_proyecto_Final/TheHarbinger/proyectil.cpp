@@ -37,8 +37,8 @@ void Proyectil::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,
 
 void Proyectil::advance(int phase)
 {
-    px = px + vx*DT;
-    py = py + vy*DT;
+    px = px + vx*DTP;
+    py = py + vy*DTP;
     setPos(px,py);
 }
 

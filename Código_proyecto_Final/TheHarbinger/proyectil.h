@@ -10,7 +10,7 @@
 
 using namespace std;
 
-#define DT 0.2
+#define DTP 0.2
 
 class Proyectil :public QObject, public QGraphicsItem
 {
