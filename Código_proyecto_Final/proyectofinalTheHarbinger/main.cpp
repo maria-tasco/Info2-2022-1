@@ -4,13 +4,6 @@
 #include <QGraphicsView>
 #include <QTimer>
 
-/*
-Tutorial Topics:
--events (keyPressEvent() and QKeyEvent)
--event propogation system
--QDebug
-*/
-
 int main(int argc, char *argv[]){
     QApplication a(argc, argv);
 
@@ -39,5 +32,9 @@ int main(int argc, char *argv[]){
 
     harbinger1->setPos(view->width()/2,view->height() - harbinger1->rect().height());
 
+    // spawn enemies
+    QTimer * timer = new QTimer();
+    QObject::connect(timer,SIGNAL(timeout()),harbinger1,SLOT(spawn()));
+    timer->start(2000);
     return a.exec();
 }

@@ -6,10 +6,10 @@ Enemigo::Enemigo()
      ax(0), ay(0),
      dx(80), dy(80)
 {
-    timeDownUp = new QTimer();
-    timeDownUp->start(2000);
+//    timeDownUp = new QTimer();
+//    timeDownUp->start(2000);
 
-    connect(timeDownUp, &QTimer::timeout, this, &Enemigo::advance);
+//    connect(timeDownUp, &QTimer::timeout, this, &Enemigo::advance);
 }
 
 Enemigo::Enemigo(float px, float py)

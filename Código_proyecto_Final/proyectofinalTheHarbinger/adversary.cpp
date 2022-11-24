@@ -18,7 +18,7 @@ Adversary::Adversary()
 void Adversary::move()
 {
     // move adversary down and up
-        setPos(x(),y()-10);
+        setPos(x(),y()+5);
         if (pos().y() + rect().height() < 0){
             scene()->removeItem(this);
             delete this;

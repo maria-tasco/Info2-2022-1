@@ -20,3 +20,10 @@ void Harbinger::keyPressEvent(QKeyEvent *event)
         scene()->addItem(missile);
     }
 }
+
+void Harbinger::spawn()
+{
+    // create an enemy
+        Adversary * adversaries = new Adversary();
+        scene()->addItem(adversaries);
+}
