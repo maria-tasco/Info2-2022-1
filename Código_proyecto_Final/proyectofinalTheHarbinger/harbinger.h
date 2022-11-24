@@ -3,6 +3,7 @@
 
 #include <QGraphicsRectItem>
 #include <QKeyEvent>
+#include "missile.h"
 
 class Harbinger: public QGraphicsRectItem{
 public:

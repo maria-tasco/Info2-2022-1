@@ -38,9 +38,6 @@ public:
     void setVx(float newVx);
     float getVy() const;
     void setVy(float newVy);
-
-public slots:
-        void On_move(void);
 };
 
 #endif // ENEMIGO_H

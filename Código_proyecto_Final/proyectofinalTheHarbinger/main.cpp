@@ -2,6 +2,7 @@
 #include "harbinger.h"
 #include <QGraphicsScene>
 #include <QGraphicsView>
+#include <QTimer>
 
 /*
 Tutorial Topics:
@@ -29,9 +30,14 @@ int main(int argc, char *argv[]){
 
     // create a view to visualize the scene
     QGraphicsView * view = new QGraphicsView(scene);
-
+    view->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     // show the view
     view->show();
+    view->setFixedSize(800,600);
+    scene->setSceneRect(0,0,800,600);
+
+    harbinger1->setPos(view->width()/2,view->height() - harbinger1->rect().height());
 
     return a.exec();
 }

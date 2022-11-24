@@ -9,7 +9,7 @@ Enemigo::Enemigo()
     timeDownUp = new QTimer();
     timeDownUp->start(2000);
 
-    connect(timeDownUp, &QTimer::timeout, this, &Enemigo::On_move);
+    connect(timeDownUp, &QTimer::timeout, this, &Enemigo::advance);
 }
 
 Enemigo::Enemigo(float px, float py)
@@ -38,14 +38,6 @@ void Enemigo::advance(int phase)
     py = py + vy*DTE +0.5*ay*DTE*DTE;
 
     setPos(px,py);
-}
-void Enemigo::On_move()
-{
-    // move enemy down
-    setPos(x(),y()+5);
-    if (pos().y()  < 0){
-
-    }
 }
 
 

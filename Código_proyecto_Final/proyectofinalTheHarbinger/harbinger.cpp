@@ -13,5 +13,10 @@ void Harbinger::keyPressEvent(QKeyEvent *event)
         }
         else if (event->key() == Qt::Key_Down){
             setPos(x(),y()+10);
-        }
+        }else if (event->key() == Qt::Key_Space){
+        // create a bullet
+        Missile * missile = new Missile();
+        missile->setPos(x(),y());
+        scene()->addItem(missile);
+    }
 }
