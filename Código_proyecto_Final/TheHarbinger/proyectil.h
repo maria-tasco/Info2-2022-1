@@ -43,6 +43,7 @@ public:
             QWidget *widget = nullptr);
 
     void advance(int phase);
+    void move(void);
 
 public slots:
     void onDestruir(void);

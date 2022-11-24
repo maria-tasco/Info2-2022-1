@@ -9,12 +9,16 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    adversary.cpp \
     harbinger.cpp \
     main.cpp \
+    missile.cpp \
     tablero.cpp
 
 HEADERS += \
+    adversary.h \
     harbinger.h \
+    missile.h \
     tablero.h
 
 FORMS += \

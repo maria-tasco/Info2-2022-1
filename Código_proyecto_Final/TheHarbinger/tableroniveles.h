@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QKeyEvent>
 #include <QGraphicsScene>
+#include <QGraphicsView>
 #include <QTimer>
 #include <QVector>
 #include "bloque.h"

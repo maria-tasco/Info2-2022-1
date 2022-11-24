@@ -42,6 +42,11 @@ void Proyectil::advance(int phase)
     setPos(px,py);
 }
 
+void Proyectil::move()
+{
+
+}
+
 void Proyectil::onDestruir()
 {
     qDebug()<<"Fin proyectil";

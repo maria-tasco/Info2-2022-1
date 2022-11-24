@@ -6,11 +6,13 @@
 #include <QPixmap>
 #include "proyectil.h"
 #include <QVector>
+#include<QTimer>
 #define DTE 0.2
 using namespace std;
 
-class Enemigo: public QGraphicsItem
+class Enemigo: public QObject, public QGraphicsItem
 {
+    Q_OBJECT
 private:
     float px, py;
     float vx, vy;
@@ -18,6 +20,7 @@ private:
     float dx, dy;
     int velocidad=5;
     QVector<Proyectil *> Proyectiles;
+    QTimer *timeDownUp;
 public:
     Enemigo();
     Enemigo(float px, float py);
@@ -35,6 +38,9 @@ public:
     void setVx(float newVx);
     float getVy() const;
     void setVy(float newVy);
+
+public slots:
+        void On_move(void);
 };
 
 #endif // ENEMIGO_H

@@ -32,13 +32,6 @@ void TableroNiveles::on_pushButtonStart_clicked()
     connect(time, &QTimer::timeout,
             scene, &QGraphicsScene::advance);
 
-//    auto p = E_izq->disparar();
-//    if(p!=nullptr){
-//        scene->addItem(p);
-//        connect(p,&Proyectil::finProyectil,
-//                this,&TableroNiveles::eliminarProyectil);
-//    }
-
     ui->pushButtonStart->hide();
 }
 
@@ -80,6 +73,13 @@ void TableroNiveles::keyPressEvent(QKeyEvent *event)
           mensajero1->MoveLeft();
         else
           mensajero1->MoveRigth();
+    }else if(event->key()==Qt::Key_P){
+        auto p = E_izq->disparar();
+        if(p!=nullptr){
+            scene->addItem(p);
+            connect(p,&Proyectil::finProyectil,
+                    this,&TableroNiveles::eliminarProyectil);
+        }
     }
 }
 
@@ -129,13 +129,13 @@ void TableroNiveles::crearMapa()
 //            }*/
 //        }
 //    }
-    paredes.push_back(new pared(0,0,600,20));
+    paredes.push_back(new pared(-30,-30,630,20));
     scene->addItem(paredes.back());
-    paredes.push_back(new pared(0,485,600,20));
+    paredes.push_back(new pared(0,485,630,20));
     scene->addItem(paredes.back());
-    paredes.push_back(new pared(0,0,20,485));
+    paredes.push_back(new pared(-30,-30,20,485));
     scene->addItem(paredes.back());
-    paredes.push_back(new pared(600,0,20,505));
+    paredes.push_back(new pared(630,0,20,505));
     scene->addItem(paredes.back());
 }
 

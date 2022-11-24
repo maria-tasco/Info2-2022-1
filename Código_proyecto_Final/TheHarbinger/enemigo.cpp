@@ -6,7 +6,10 @@ Enemigo::Enemigo()
      ax(0), ay(0),
      dx(80), dy(80)
 {
+    timeDownUp = new QTimer();
+    timeDownUp->start(2000);
 
+    connect(timeDownUp, &QTimer::timeout, this, &Enemigo::On_move);
 }
 
 Enemigo::Enemigo(float px, float py)
@@ -36,6 +39,15 @@ void Enemigo::advance(int phase)
 
     setPos(px,py);
 }
+void Enemigo::On_move()
+{
+    // move enemy down
+    setPos(x(),y()+5);
+    if (pos().y()  < 0){
+
+    }
+}
+
 
 Proyectil* Enemigo::disparar()
 {
@@ -63,7 +75,6 @@ Proyectil* Enemigo::eliminarProyectil()
     Proyectiles.remove(0);
     return p;
 }
-
 float Enemigo::getVx() const
 {
     return vx;
