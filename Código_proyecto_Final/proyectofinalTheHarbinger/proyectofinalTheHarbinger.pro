@@ -13,13 +13,15 @@ SOURCES += \
     harbinger.cpp \
     main.cpp \
     missile.cpp \
-    tablero.cpp
+    tablero.cpp \
+    world.cpp
 
 HEADERS += \
     adversary.h \
     harbinger.h \
     missile.h \
-    tablero.h
+    tablero.h \
+    world.h
 
 FORMS += \
     tablero.ui
