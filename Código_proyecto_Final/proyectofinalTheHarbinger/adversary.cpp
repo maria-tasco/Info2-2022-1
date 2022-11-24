@@ -1,5 +1,7 @@
 #include "adversary.h"
+#include "world.h"
 
+extern World * game;
 Adversary::Adversary()
 {
     //set random position
@@ -17,11 +19,16 @@ Adversary::Adversary()
 
 void Adversary::move()
 {
-    // move adversary down and up
-        setPos(x(),y()+5);
-        if (pos().y() + rect().height() < 0){
-            scene()->removeItem(this);
-            delete this;
-        }
+    // move adversary down
+    setPos(x(),y()+10);
+
+    // destroy enemy when it goes out of the screen
+    if (pos().y() > 600){
+        //decrease the health
+        game->lives->decrease();
+
+        scene()->removeItem(this);
+        delete this;
+    }
 }
 

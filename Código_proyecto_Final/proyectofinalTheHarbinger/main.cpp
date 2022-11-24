@@ -1,13 +1,7 @@
 #include <QApplication>
 #include "world.h"
 
-/*
-Tutorial Topics:
--parents
--QGraphicsTextItem, setPlainText(), setFont(),setDefaultTextColor()
-*/
-
-World * game;
+World * game; //object global
 
 int main(int argc, char *argv[]){
     QApplication a(argc, argv);

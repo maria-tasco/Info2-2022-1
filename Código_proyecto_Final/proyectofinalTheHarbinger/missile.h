@@ -7,6 +7,8 @@
 #include <QObject>
 #include <QList>
 #include "adversary.h"
+
+
 class Missile : public QObject,public QGraphicsRectItem
 {
     Q_OBJECT

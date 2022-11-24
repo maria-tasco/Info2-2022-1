@@ -1,4 +1,7 @@
 #include "missile.h"
+#include "world.h"
+
+extern World * game;
 
 Missile::Missile()
 {
@@ -23,6 +26,8 @@ void Missile::move()
     QList<QGraphicsItem *> colliding_items = collidingItems();
     for (int i = 0, n = colliding_items.size(); i < n; ++i){
         if (typeid(*(colliding_items[i])) == typeid(Adversary)){
+            //increase the score
+            game->score->increase();//Since it was an object created in the World class, you need to refer to the class that created the object.
             // remove them both
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
