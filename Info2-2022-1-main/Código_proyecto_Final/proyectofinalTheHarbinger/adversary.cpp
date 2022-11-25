@@ -3,7 +3,7 @@
 
 extern World * game;
 Adversary::Adversary()
-    :vx(0), vy(10),
+    :vx(0), vy(15),
     ax(0), ay(9.8), w(2)
 {
     //set random position

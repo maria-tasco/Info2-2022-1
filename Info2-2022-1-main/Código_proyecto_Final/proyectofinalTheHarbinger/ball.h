@@ -19,8 +19,6 @@ private:
     float px, py;
     float w;
     int m_index;
-    QVector<QPointF> mPath; //vector de puntos
-    QVector<QPointF> calculatePath() const;
 public:
     Ball();
 public slots:

@@ -11,31 +11,11 @@ Ball::Ball()
     QTimer * timerB = new QTimer();
     connect(timerB,SIGNAL(timeout()),this,SLOT(move()));
 
-    timerB->start(5);
+    timerB->start(2);
 }
-QVector<QPointF> Ball::calculatePath() const
-{
-    QVector<QPointF> path;
-    double x=10;
-    for(int i=0; i<=(XSIZE-10)/0.1; i+=1){
-        qDebug() << i;
-        const double h = XSIZE/2;
-        const double k = YSIZE;
-        const double p = 30.0;
-        const double y = -(qPow(x-h,2)/260)+k;
-        qDebug() << x << " " << y;
-        path << QPointF(x,y);
-        x+=0.1;
-    }
-    return path;
-}
+
 void Ball::move()
 {
-//   mPath = calculatePath();
-//   for(int i=0; i<=(XSIZE-10)/0.1; i+=1){
-//    setPos(mPath.at(i).x(),mPath.at(i).y());
-//    }
-
     const double h = XSIZE/2;
     const double k = YSIZE;
 
