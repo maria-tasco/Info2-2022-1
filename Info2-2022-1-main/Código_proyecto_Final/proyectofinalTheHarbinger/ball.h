@@ -7,8 +7,8 @@
 #include  <stdlib.h>
 #include <QVector>
 #include <QtMath>
-
-#define XSIZE 800
+#include <QDebug>
+#define XSIZE 800.0
 #define YSIZE 600
 
 class Ball: public QObject,public QGraphicsRectItem
@@ -16,8 +16,11 @@ class Ball: public QObject,public QGraphicsRectItem
 private:
     float vx, vy;
     float ax, ay;
+    float px, py;
     float w;
-    QVector<QPointF> m_path;
+    int m_index;
+    QVector<QPointF> mPath; //vector de puntos
+    QVector<QPointF> calculatePath() const;
 public:
     Ball();
 public slots:
