@@ -23,18 +23,9 @@ World::World(QWidget *parent)
     // add the player to the scene
     scene->addItem(harbinger1);
 
-    //create the ball and mythread
-    TrueBall = new Ball(0,0,10,10);
-    scene->addItem(TrueBall);
-
-    QTimer *timerBall = new QTimer();
-    QObject::connect(timerBall,SIGNAL(timeout()),this,SLOT(update()));
-    timerBall->start(2000);
-
     //create the score
     score = new Score();
     scene->addItem(score);
-
     //create the life
     lives = new Life();
     lives->setPos(lives->x(),lives->y()+25);
@@ -45,10 +36,15 @@ World::World(QWidget *parent)
     QObject::connect(timer,SIGNAL(timeout()),harbinger1,SLOT(spawn()));
     timer->start(2000);
 
-    show();
-}
+    //create ball and move
+    myBall = new Ball;
+    myBall->setRect(0,0,50,50);
+    myBall->setPos(0,0);
+    scene->addItem(myBall);
 
-void World::update()
-{
-    //QGraphicsScene::update(rect);
+//    QTimer * timerBall = new QTimer();
+//    QObject::connect(timerBall,SIGNAL(timeout()),harbinger1,SLOT(spawnB()));
+//    timer->start(2000);
+
+    show();
 }

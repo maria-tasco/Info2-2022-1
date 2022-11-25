@@ -5,7 +5,6 @@
 #include <QGraphicsRectItem>
 #include <QObject>
 #include  <stdlib.h>
-#include <QGraphicsRotation>
 #define DTY 0.8
 #define DTX 0.1
 class Adversary : public QObject,public QGraphicsRectItem

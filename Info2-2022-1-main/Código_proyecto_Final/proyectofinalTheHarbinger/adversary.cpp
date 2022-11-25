@@ -21,7 +21,7 @@ Adversary::Adversary()
 
 void Adversary::move()
 {
-    // move adversary down, caida libre
+    // move adversary down
     setPos(x()+w*DTX,y()+vy*DTY-0.5*ay*DTY*DTY);
 
     // destroy enemy when it goes out of the screen

@@ -9,30 +9,31 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    adversary.cpp \
-    harbinger.cpp \
-    life.cpp \
+    bloque.cpp \
+    enemigo.cpp \
     main.cpp \
-    missile.cpp \
-    myball.cpp \
-    score.cpp \
-    tablero.cpp \
-    world.cpp
+    mensajero.cpp \
+    pared.cpp \
+    proyectil.cpp \
+    tableroniveles.cpp
 
 HEADERS += \
-    adversary.h \
-    harbinger.h \
-    life.h \
-    missile.h \
-    myball.h \
-    score.h \
-    tablero.h \
-    world.h
+    bloque.h \
+    enemigo.h \
+    mensajero.h \
+    pared.h \
+    proyectil.h \
+    tableroniveles.h
 
 FORMS += \
-    tablero.ui
+    tableroniveles.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Bloques.qrc \
+    Mensajeros.qrc \
+    ObjetoEscenario.qrc

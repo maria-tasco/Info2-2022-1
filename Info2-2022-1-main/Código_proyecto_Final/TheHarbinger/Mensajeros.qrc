@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/M">
+        <file>ImgProyectoFinal/MensajeroHombre.png</file>
+        <file>ImgProyectoFinal/MensajeraMujer.png</file>
+        <file>ImgProyectoFinal/mensajeroPrueba.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/Enemigo">
+        <file>ImgProyectoFinal/enemigo.png</file>
+    </qresource>
+    <qresource prefix="/FondosNiveles"/>
+    <qresource prefix="/Proyectiles">
+        <file>ImgProyectoFinal/proyectilPiedra.png</file>
+        <file>ImgProyectoFinal/proyectilFuego.png</file>
+    </qresource>
+</RCC>

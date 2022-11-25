@@ -10,21 +10,21 @@ CONFIG += c++11
 
 SOURCES += \
     adversary.cpp \
+    ball.cpp \
     harbinger.cpp \
     life.cpp \
     main.cpp \
     missile.cpp \
-    myball.cpp \
     score.cpp \
     tablero.cpp \
     world.cpp
 
 HEADERS += \
     adversary.h \
+    ball.h \
     harbinger.h \
     life.h \
     missile.h \
-    myball.h \
     score.h \
     tablero.h \
     world.h
